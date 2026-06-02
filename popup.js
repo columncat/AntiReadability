@@ -59,20 +59,36 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // Send execution request to background script
-      chrome.runtime.sendMessage(
-        { action: "activate_in_tab", tabId: activeTab.id },
-        (response) => {
-          if (chrome.runtime.lastError) {
+      // First, try sending a ping to see if the script is already injected
+      chrome.tabs.sendMessage(activeTab.id, { action: "ping" }, (response) => {
+        if (chrome.runtime.lastError || !response || response.status !== "pong") {
+          // If not loaded, inject content.js and content.css directly from popup script
+          // to prevent activeTab permission revocation when popup window closes.
+          chrome.scripting.executeScript({
+            target: { tabId: activeTab.id },
+            files: ["content.js"]
+          }).then(() => {
+            return chrome.scripting.insertCSS({
+              target: { tabId: activeTab.id },
+              files: ["content.css"]
+            });
+          }).then(() => {
+            // Send activate command to content script
+            chrome.tabs.sendMessage(activeTab.id, { action: "activate" }, () => {
+              window.close();
+            });
+          }).catch(err => {
             errorNotice.style.display = "block";
             errorNotice.textContent = chrome.i18n.getMessage("tab_error_load");
-            console.error(chrome.runtime.lastError);
-          } else {
-            // Close popup window automatically for screen space
+            console.error("Direct injection failed:", err);
+          });
+        } else {
+          // Already injected, send activate command directly
+          chrome.tabs.sendMessage(activeTab.id, { action: "activate" }, () => {
             window.close();
-          }
+          });
         }
-      );
+      });
     });
   });
 });
