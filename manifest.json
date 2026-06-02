@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AntiReadability - 민감 정보 난독화 도구",
+  "version": "1.0.0",
+  "description": "화면 캡처 시 민감한 개인정보 영역을 레이아웃 깨짐 없이 무작위 텍스트나 도형으로 자연스럽게 난독화합니다.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  }
+}

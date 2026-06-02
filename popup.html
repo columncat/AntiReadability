@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>AntiReadability</title>
+  <link rel="stylesheet" href="popup.css">
+  <!-- Load modern fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-group">
+        <div class="logo-dot"></div>
+        <h1 class="logo-title">AntiReadability</h1>
+      </div>
+      <span class="version">v1.0.0</span>
+    </header>
+
+    <!-- Main Action Button -->
+    <div class="action-section">
+      <button class="btn-primary" id="btn-activate-now">
+        <svg class="btn-icon" viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L12 15v5c0 .55.45 1 1 1s1-.45 1-1v-5.15l4.12 4.12c-1.33.95-2.92 1.58-4.65 1.81z"/>
+        </svg>
+        현재 탭에서 난독화 시작
+      </button>
+      <div class="tab-notice" id="tab-error-notice" style="display: none;">이 페이지에서는 확장 프로그램을 실행할 수 없습니다 (크롬 보안 페이지 등).</div>
+    </div>
+
+    <!-- Default Mode Settings -->
+    <div class="settings-section">
+      <h2 class="section-title">기본 난독화 유형 설정</h2>
+      <div class="settings-grid">
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="scramble" checked>
+          <div class="card-content">
+            <span class="card-title">텍스트 믹스</span>
+            <span class="card-desc">문자를 동등한 무작위 문자로 변경</span>
+          </div>
+        </label>
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="geometric">
+          <div class="card-content">
+            <span class="card-title">도형 치환</span>
+            <span class="card-desc">문자를 기하학적 도형으로 치환</span>
+          </div>
+        </label>
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="block">
+          <div class="card-content">
+            <span class="card-title">블랙 블록</span>
+            <span class="card-desc">문자를 █ 블록으로 가림</span>
+          </div>
+        </label>
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="blur">
+          <div class="card-content">
+            <span class="card-title">블러 처리</span>
+            <span class="card-desc">선택한 영역을 흐릿하게 필터링</span>
+          </div>
+        </label>
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="image">
+          <div class="card-content">
+            <span class="card-title">이미지 블러</span>
+            <span class="card-desc">이미지를 클릭하여 흐릿하게 처리</span>
+          </div>
+        </label>
+        <label class="setting-card">
+          <input type="radio" name="default-mode" value="restore">
+          <div class="card-content">
+            <span class="card-title">복원 (지우개)</span>
+            <span class="card-desc">난독화된 정보 드래그/클릭하여 복원</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Step Guide -->
+    <div class="guide-section">
+      <h2 class="section-title">사용 방법</h2>
+      <ol class="guide-list">
+        <li>
+          <span class="step-num">1</span>
+          <span class="step-text">웹페이지에서 마우스 우클릭 후 <strong>'민감 정보 난독화 시작'</strong>을 선택하거나 위의 <strong>'시작'</strong> 버튼을 클릭합니다.</span>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <span class="step-text">화면에 나타난 플로팅 툴바에서 원하는 난독화 유형을 고릅니다.</span>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <span class="step-text">숨기고 싶은 텍스트 영역을 마우스로 드래그하면 즉시 난독화됩니다. (이미지는 '이미지' 모드 선택 후 클릭)</span>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <span class="step-text">난독화를 원래대로 되돌리려면 <strong>'지우개'</strong> 모드를 선택한 후, 난독화된 텍스트를 드래그하거나 이미지를 클릭하여 복원합니다.</span>
+        </li>
+        <li>
+          <span class="step-num">5</span>
+          <span class="step-text">작업 완료 후 <strong>'완료'</strong>를 눌러 툴바를 닫고 화면 스크린샷을 찍습니다. (단축키 Ctrl+Z / Ctrl+Y 지원)</span>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>Chrome Web Store 상용 배포 기준 준수</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

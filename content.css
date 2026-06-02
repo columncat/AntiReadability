@@ -1,0 +1,48 @@
+/* Content Script Styles for AntiReadability Extension */
+
+/* 1. Obfuscated Blur CSS - applies direct blur on the wrapped text spans */
+.obfuscated-blur {
+  filter: blur(6px) !important;
+  user-select: none !important;
+  pointer-events: none !important;
+  display: inline-block;
+  transition: filter 0.3s ease;
+}
+
+/* 2. Global page styling when text selection mode is active */
+body.ar-active-mode a,
+body.ar-active-mode a * {
+  pointer-events: none !important;
+  cursor: text !important;
+}
+
+/* 3. Image Obfuscation Hover States (Page level) */
+body.ar-active-mode.ar-mode-image img {
+  cursor: pointer !important;
+  transition: outline 0.15s ease, filter 0.15s ease !important;
+}
+
+body.ar-active-mode.ar-mode-image img:not(.ar-obfuscated-image):hover {
+  outline: 3px solid #38bdf8 !important;
+  outline-offset: -3px !important;
+  filter: brightness(0.85) !important;
+}
+
+/* Class applied to blurred images */
+.ar-obfuscated-image {
+  transition: filter 0.3s ease !important;
+}
+
+/* 4. Restore Mode Hover States (Page level) */
+body.ar-active-mode.ar-mode-restore .obfuscated-blur:hover {
+  outline: 2px dashed #ec4899 !important;
+  outline-offset: 2px !important;
+  cursor: pointer !important;
+  filter: brightness(1.1) !important;
+}
+
+body.ar-active-mode.ar-mode-restore img.ar-obfuscated-image:hover {
+  outline: 3px dashed #ec4899 !important;
+  outline-offset: -3px !important;
+  cursor: pointer !important;
+}
