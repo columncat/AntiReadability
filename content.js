@@ -357,7 +357,7 @@
       undoHistory.push(transaction);
       redoHistory = []; // Clear redo stack on new action
       updateToolbarButtons();
-      showToast(currentMode === 'restore' ? "선택 영역 복원 완료" : "선택 영역 난독화 완료");
+      showToast(currentMode === 'restore' ? chrome.i18n.getMessage("toast_restore_success") : chrome.i18n.getMessage("toast_obfuscate_success"));
     }
 
     // Clear selection for a clean experience
@@ -404,7 +404,7 @@
       undoHistory.push([change]);
       redoHistory = []; // Clear redo stack
       updateToolbarButtons();
-      showToast("이미지 난독화 완료");
+      showToast(chrome.i18n.getMessage("toast_image_obfuscate"));
     } else if (currentMode === 'restore') {
       // If clicked a blurred image, restore it
       if (img.classList.contains('ar-obfuscated-image')) {
@@ -424,7 +424,7 @@
         undoHistory.push([change]);
         redoHistory = []; // Clear redo stack
         updateToolbarButtons();
-        showToast("이미지 복원 완료");
+        showToast(chrome.i18n.getMessage("toast_image_restore"));
       }
     }
   }
@@ -479,7 +479,7 @@
       undoHistory.push(transaction);
       redoHistory = [];
       updateToolbarButtons();
-      showToast("전체 페이지 복원 완료");
+      showToast(chrome.i18n.getMessage("toast_page_restore"));
     }
   }
 
@@ -524,7 +524,7 @@
         undoHistory.push(transaction);
         redoHistory = [];
         updateToolbarButtons();
-        showToast("모든 이미지 난독화 완료");
+        showToast(chrome.i18n.getMessage("toast_page_image_obfuscate"));
       }
       return;
     }
@@ -587,7 +587,7 @@
       undoHistory.push(transaction);
       redoHistory = [];
       updateToolbarButtons();
-      showToast("전체 페이지 난독화 완료");
+      showToast(chrome.i18n.getMessage("toast_page_obfuscate"));
     }
   }
 
@@ -616,7 +616,7 @@
     
     redoHistory.push(transaction);
     updateToolbarButtons();
-    showToast("실행 취소되었습니다");
+    showToast(chrome.i18n.getMessage("toast_undo"));
   }
 
   // Redo last undone action
@@ -642,7 +642,7 @@
     
     undoHistory.push(transaction);
     updateToolbarButtons();
-    showToast("다시 실행되었습니다");
+    showToast(chrome.i18n.getMessage("toast_redo"));
   }
 
   // Update Toolbar UI state (Undo/Redo button disabled states)
@@ -956,7 +956,7 @@
 
     // Horizontal Capsule Toolbar Inner HTML
     toolbarElement.innerHTML = `
-      <div class="ar-drag-handle" title="드래그하여 이동">
+      <div class="ar-drag-handle" title="${chrome.i18n.getMessage('toolbar_drag_title')}">
         <svg viewBox="0 0 12 20" fill="none">
           <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
           <circle cx="2" cy="6" r="1.5" fill="currentColor"/>
@@ -979,51 +979,51 @@
       <div class="ar-divider"></div>
 
       <div class="ar-modes-segment">
-        <button class="ar-segment-btn active" data-mode="scramble" title="텍스트 믹스: 무작위 문자로 치환">
+        <button class="ar-segment-btn active" data-mode="scramble" title="${chrome.i18n.getMessage('mode_scramble_title')}">
           <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.45 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
-          <span class="ar-btn-label">믹스</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_scramble')}</span>
         </button>
-        <button class="ar-segment-btn" data-mode="geometric" title="도형 치환: 기하학적 도형으로 치환">
+        <button class="ar-segment-btn" data-mode="geometric" title="${chrome.i18n.getMessage('mode_geometric_title')}">
           <svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1.5" /><circle cx="17" cy="7" r="4.5" /><polygon points="12,13 6,21 18,21" /></svg>
-          <span class="ar-btn-label">도형</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_geometric')}</span>
         </button>
-        <button class="ar-segment-btn" data-mode="block" title="블랙 블록: 검은색 █ 블록 가림">
+        <button class="ar-segment-btn" data-mode="block" title="${chrome.i18n.getMessage('mode_block_title')}">
           <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" /></svg>
-          <span class="ar-btn-label">블록</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_block')}</span>
         </button>
-        <button class="ar-segment-btn" data-mode="blur" title="블러 처리: 텍스트 흐리게 필터링">
+        <button class="ar-segment-btn" data-mode="blur" title="${chrome.i18n.getMessage('mode_blur_title')}">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" opacity="0.3" /><circle cx="12" cy="12" r="6" opacity="0.6" /><circle cx="12" cy="12" r="3" /></svg>
-          <span class="ar-btn-label">블러</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_blur')}</span>
         </button>
-        <button class="ar-segment-btn" data-mode="image" title="이미지 난독화: 클릭하여 이미지 블러">
+        <button class="ar-segment-btn" data-mode="image" title="${chrome.i18n.getMessage('mode_image_title')}">
           <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1zm-4.44-6.19l-3 3.86L8.5 14.5l-3 4h13l-3.94-5.19z"/></svg>
-          <span class="ar-btn-label">이미지</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_image')}</span>
         </button>
-        <button class="ar-segment-btn" data-mode="restore" title="되돌리기(지우개): 드래그/클릭하여 원래대로 복원">
+        <button class="ar-segment-btn" data-mode="restore" title="${chrome.i18n.getMessage('mode_restore_title')}">
           <svg viewBox="0 0 24 24"><path d="M16.24 7.56l.01-.01c.39-.39 1.02-.39 1.41 0l2.83 2.83c.39.39.39 1.02 0 1.41l-8.59 8.59c-.39.39-1.02.39-1.41 0l-2.83-2.83c-.39-.39-.39-1.02 0-1.41l8.59-8.59zm-8.58 9.27L10.37 14 14 17.63l-2.71 2.71c-.39.39-1.02.39-1.41 0l-2.83-2.83c-.39-.38-.39-1.01 0-1.41c.01.02.01.02 0 0zm-3.37 3.17H21v-2H10.59l-2.82 2z"/></svg>
-          <span class="ar-btn-label">지우개</span>
+          <span class="ar-btn-label">${chrome.i18n.getMessage('mode_restore')}</span>
         </button>
       </div>
 
       <div class="ar-divider"></div>
 
       <div class="ar-actions-group">
-        <button class="ar-action-btn" id="ar-undo" disabled title="실행 취소 (Ctrl+Z)">
+        <button class="ar-action-btn" id="ar-undo" disabled title="${chrome.i18n.getMessage('toolbar_undo_title')}">
           <svg viewBox="0 0 24 24"><path d="M12.5 8c-2.65 0-5.05 1-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/></svg>
         </button>
-        <button class="ar-action-btn" id="ar-redo" disabled title="다시 실행 (Ctrl+Y)">
+        <button class="ar-action-btn" id="ar-redo" disabled title="${chrome.i18n.getMessage('toolbar_redo_title')}">
           <svg viewBox="0 0 24 24"><path d="M18.4 10.6C16.55 9 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.97 7.22l2.37.78c1.05-3.19 4.06-5.5 7.6-5.5 1.96 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/></svg>
         </button>
-        <button class="ar-action-btn" id="ar-obfuscate-all" title="전체 페이지 난독화">
+        <button class="ar-action-btn" id="ar-obfuscate-all" title="${chrome.i18n.getMessage('toolbar_all_title')}">
           <svg viewBox="0 0 24 24"><path d="M7.5 5.6L10 7 8.6 4.5 10 2 7.5 3.4 5 2l1.4 2.5L5 7zm12 9.8l-2.5-1.4 1.4 2.5-1.4 2.5 2.5-1.4 2.5 1.4-1.4-2.5 1.4-2.5zm0-9.2l-2.5-1.4 1.4 2.5-1.4 2.5 2.5-1.4 2.5 1.4-1.4-2.5 1.4-2.5zM3 21h3.75L17.81 9.94l-3.75-3.75L3 17.25V21zm17.71-12.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
         </button>
       </div>
 
       <div class="ar-divider"></div>
 
-      <button class="ar-finish-btn" id="ar-finish" title="난독화 완료 및 툴바 닫기">
+      <button class="ar-finish-btn" id="ar-finish" title="${chrome.i18n.getMessage('toolbar_finish_title')}">
         <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-        <span>완료</span>
+        <span>${chrome.i18n.getMessage('toolbar_finish')}</span>
       </button>
     `;
 
@@ -1034,7 +1034,7 @@
     toastElement.className = 'ar-toast-container';
     toastElement.innerHTML = `
       <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-      <span class="ar-toast-text">난독화 활성화</span>
+      <span class="ar-toast-text">${chrome.i18n.getMessage('extName')}</span>
     `;
     shadowRoot.appendChild(toastElement);
 
@@ -1052,7 +1052,7 @@
         
         currentMode = clickedBtn.getAttribute('data-mode');
         updateBodyClasses(); // Apply specific pointer events / outlines dynamically
-        showToast(`난독화 모드 변경: ${clickedBtn.querySelector('.ar-btn-label').textContent}`);
+        showToast(chrome.i18n.getMessage("toast_mode_change") + clickedBtn.querySelector('.ar-btn-label').textContent);
       });
     });
 
@@ -1146,7 +1146,7 @@
   // Main activate handler
   function activate() {
     if (isActive) {
-      showToast("이미 난독화 모드가 활성화되어 있습니다");
+      showToast(chrome.i18n.getMessage("toast_activated_already"));
       return;
     }
     isActive = true;
@@ -1193,7 +1193,7 @@
           }
         });
       }
-      showToast("난독화 모드가 켜졌습니다. 텍스트를 드래그하거나 이미지를 클릭하세요.");
+      showToast(chrome.i18n.getMessage("toast_activated_welcome"));
     }, 100);
   }
 

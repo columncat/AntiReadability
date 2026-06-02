@@ -1,11 +1,21 @@
 // Popup logic for AntiReadability Extension
 
 document.addEventListener("DOMContentLoaded", () => {
+  // 1. Localize HTML elements
+  const localizableElements = document.querySelectorAll('[data-i18n]');
+  localizableElements.forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    const translation = chrome.i18n.getMessage(key);
+    if (translation) {
+      element.innerHTML = translation;
+    }
+  });
+
   const btnActivate = document.getElementById("btn-activate-now");
   const errorNotice = document.getElementById("tab-error-notice");
   const radioButtons = document.querySelectorAll('input[name="default-mode"]');
 
-  // 1. Load saved default mode from storage
+  // 2. Load saved default mode from storage
   chrome.storage.local.get(["defaultMode"], (result) => {
     if (result.defaultMode) {
       const savedRadio = document.querySelector(`input[name="default-mode"][value="${result.defaultMode}"]`);
@@ -15,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // 2. Save settings when default mode changes
+  // 3. Save settings when default mode changes
   radioButtons.forEach(radio => {
     radio.addEventListener("change", (e) => {
       const mode = e.target.value;
@@ -25,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 3. Handle activation in the current active tab
+  // 4. Handle activation in the current active tab
   btnActivate.addEventListener("click", () => {
     errorNotice.style.display = "none";
 
@@ -45,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
         url === ""
       ) {
         errorNotice.style.display = "block";
-        errorNotice.textContent = "크롬 시스템 페이지 또는 보안 탭에서는 실행할 수 없습니다.";
+        errorNotice.textContent = chrome.i18n.getMessage("tab_error_system");
         return;
       }
 
@@ -55,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         (response) => {
           if (chrome.runtime.lastError) {
             errorNotice.style.display = "block";
-            errorNotice.textContent = "확장 프로그램 로드 중 오류가 발생했습니다. 페이지를 새로고침 해보세요.";
+            errorNotice.textContent = chrome.i18n.getMessage("tab_error_load");
             console.error(chrome.runtime.lastError);
           } else {
             // Close popup window automatically for screen space

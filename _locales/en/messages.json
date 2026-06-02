@@ -1,0 +1,152 @@
+{
+  "extName": {
+    "message": "AntiReadability - Sensitive Info Masking Tool"
+  },
+  "extDescription": {
+    "message": "Naturally obfuscate sensitive personal information with random characters or shapes before taking screenshots, without breaking the page layout."
+  },
+  "context_menu_title": {
+    "message": "Start Sensitive Info Masking"
+  },
+  "btn_activate_now": {
+    "message": "Start Masking on Current Tab"
+  },
+  "tab_error_system": {
+    "message": "Cannot run on Chrome system pages or secure tabs."
+  },
+  "tab_error_load": {
+    "message": "Error loading the extension. Please refresh the page."
+  },
+  "settings_title": {
+    "message": "Default Masking Type Settings"
+  },
+  "mode_scramble": {
+    "message": "Mix"
+  },
+  "mode_scramble_desc": {
+    "message": "Replace characters with random matching classes"
+  },
+  "mode_scramble_title": {
+    "message": "Text Mix: Replace with random letters/digits"
+  },
+  "mode_geometric": {
+    "message": "Geometric"
+  },
+  "mode_geometric_desc": {
+    "message": "Replace characters with geometric symbols"
+  },
+  "mode_geometric_title": {
+    "message": "Geometric: Replace with shapes (U+25A0~U+26FF)"
+  },
+  "mode_block": {
+    "message": "Block"
+  },
+  "mode_block_desc": {
+    "message": "Cover characters with solid black █ blocks"
+  },
+  "mode_block_title": {
+    "message": "Black Block: Redact characters with █ blocks"
+  },
+  "mode_blur": {
+    "message": "Blur"
+  },
+  "mode_blur_desc": {
+    "message": "Blur selected text with CSS filter"
+  },
+  "mode_blur_title": {
+    "message": "Blur Text: Make selection blurry"
+  },
+  "mode_image": {
+    "message": "Image"
+  },
+  "mode_image_desc": {
+    "message": "Click on images to blur them"
+  },
+  "mode_image_title": {
+    "message": "Image Blur: Click to make images blurry"
+  },
+  "mode_restore": {
+    "message": "Eraser"
+  },
+  "mode_restore_desc": {
+    "message": "Drag or click masked elements to restore"
+  },
+  "mode_restore_title": {
+    "message": "Eraser: Drag text or click images to restore originals"
+  },
+  "guide_title": {
+    "message": "How to Use"
+  },
+  "guide_step_1": {
+    "message": "Right-click anywhere on the webpage and select <strong>'Start Sensitive Info Masking'</strong> or click the <strong>'Start'</strong> button above."
+  },
+  "guide_step_2": {
+    "message": "Select your preferred masking type from the horizontal floating toolbar."
+  },
+  "guide_step_3": {
+    "message": "Drag with your mouse over the text you want to hide. (For images, click them in Image mode.)"
+  },
+  "guide_step_4": {
+    "message": "To restore masked items, switch to <strong>'Eraser'</strong> mode and drag over text or click on blurred images."
+  },
+  "guide_step_5": {
+    "message": "When done, click <strong>'Finish'</strong> to hide the toolbar and take a screenshot. (Supports Ctrl+Z / Ctrl+Y shortcuts)"
+  },
+  "footer_text": {
+    "message": "Compliant with Chrome Web Store Guidelines"
+  },
+  "toast_activated_already": {
+    "message": "Masking mode is already active"
+  },
+  "toast_activated_welcome": {
+    "message": "Masking mode active. Drag text or click images to mask."
+  },
+  "toast_restore_success": {
+    "message": "Restored selection"
+  },
+  "toast_obfuscate_success": {
+    "message": "Masked selection"
+  },
+  "toast_image_obfuscate": {
+    "message": "Masked image"
+  },
+  "toast_image_restore": {
+    "message": "Restored image"
+  },
+  "toast_page_restore": {
+    "message": "Restored entire page"
+  },
+  "toast_page_image_obfuscate": {
+    "message": "Masked all images"
+  },
+  "toast_page_obfuscate": {
+    "message": "Masked entire page"
+  },
+  "toast_undo": {
+    "message": "Undo successful"
+  },
+  "toast_redo": {
+    "message": "Redo successful"
+  },
+  "toast_mode_change": {
+    "message": "Masking mode changed: "
+  },
+  "toolbar_drag_title": {
+    "message": "Drag to move toolbar"
+  },
+  "toolbar_undo_title": {
+    "message": "Undo last action (Ctrl+Z)"
+  },
+  "toolbar_redo_title": {
+    "message": "Redo last undone action (Ctrl+Y)"
+  },
+  "toolbar_all_title": {
+    "message": "Mask entire page"
+  },
+  "toolbar_finish_title": {
+    "message": "Finish masking and close toolbar"
+  },
+  "toolbar_finish": {
+    "message": "Finish"
+  }
+}

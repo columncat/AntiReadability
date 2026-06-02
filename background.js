@@ -4,7 +4,7 @@
 chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: "start-obfuscation",
-    title: "민감 정보 난독화 시작",
+    title: chrome.i18n.getMessage("context_menu_title"),
     contexts: ["all"]
   });
 });

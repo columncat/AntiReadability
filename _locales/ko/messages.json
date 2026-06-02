@@ -1,0 +1,152 @@
+{
+  "extName": {
+    "message": "AntiReadability - 민감 정보 난독화 도구"
+  },
+  "extDescription": {
+    "message": "화면 캡처 시 민감한 개인정보 영역을 레이아웃 깨짐 없이 무작위 텍스트나 도형으로 자연스럽게 난독화합니다."
+  },
+  "context_menu_title": {
+    "message": "민감 정보 난독화 시작"
+  },
+  "btn_activate_now": {
+    "message": "현재 탭에서 난독화 시작"
+  },
+  "tab_error_system": {
+    "message": "크롬 시스템 페이지 또는 보안 탭에서는 실행할 수 없습니다."
+  },
+  "tab_error_load": {
+    "message": "확장 프로그램 로드 중 오류가 발생했습니다. 페이지를 새로고침 해보세요."
+  },
+  "settings_title": {
+    "message": "기본 난독화 유형 설정"
+  },
+  "mode_scramble": {
+    "message": "믹스"
+  },
+  "mode_scramble_desc": {
+    "message": "문자를 동등한 무작위 문자로 변경"
+  },
+  "mode_scramble_title": {
+    "message": "텍스트 믹스: 무작위 문자로 치환"
+  },
+  "mode_geometric": {
+    "message": "도형"
+  },
+  "mode_geometric_desc": {
+    "message": "문자를 기하학적 도형으로 치환"
+  },
+  "mode_geometric_title": {
+    "message": "도형 치환: 기하학적 도형으로 치환"
+  },
+  "mode_block": {
+    "message": "블록"
+  },
+  "mode_block_desc": {
+    "message": "문자를 █ 블록으로 가림"
+  },
+  "mode_block_title": {
+    "message": "블랙 블록: 검은색 █ 블록 가림"
+  },
+  "mode_blur": {
+    "message": "블러"
+  },
+  "mode_blur_desc": {
+    "message": "선택한 영역을 흐릿하게 필터링"
+  },
+  "mode_blur_title": {
+    "message": "블러 처리: 텍스트 흐리게 필터링"
+  },
+  "mode_image": {
+    "message": "이미지"
+  },
+  "mode_image_desc": {
+    "message": "이미지를 클릭하여 흐릿하게 처리"
+  },
+  "mode_image_title": {
+    "message": "이미지 난독화: 클릭하여 이미지 블러"
+  },
+  "mode_restore": {
+    "message": "지우개"
+  },
+  "mode_restore_desc": {
+    "message": "난독화된 정보 드래그/클릭하여 복원"
+  },
+  "mode_restore_title": {
+    "message": "되돌리기(지우개): 드래그/클릭하여 원래대로 복원"
+  },
+  "guide_title": {
+    "message": "사용 방법"
+  },
+  "guide_step_1": {
+    "message": "웹페이지에서 마우스 우클릭 후 <strong>'민감 정보 난독화 시작'</strong>을 선택하거나 위의 <strong>'시작'</strong> 버튼을 클릭합니다."
+  },
+  "guide_step_2": {
+    "message": "화면에 나타난 플로팅 툴바에서 원하는 난독화 유형을 고릅니다."
+  },
+  "guide_step_3": {
+    "message": "숨기고 싶은 텍스트 영역을 마우스로 드래그하면 즉시 난독화됩니다. (이미지는 '이미지' 모드 선택 후 클릭)"
+  },
+  "guide_step_4": {
+    "message": "난독화를 원래대로 되돌리려면 <strong>'지우개'</strong> 모드를 선택한 후, 난독화된 텍스트를 드래그하거나 이미지를 클릭하여 복원합니다."
+  },
+  "guide_step_5": {
+    "message": "작업 완료 후 <strong>'완료'</strong>를 눌러 툴바를 닫고 화면 스크린샷을 찍습니다. (단축키 Ctrl+Z / Ctrl+Y 지원)"
+  },
+  "footer_text": {
+    "message": "Chrome Web Store 상용 배포 기준 준수"
+  },
+  "toast_activated_already": {
+    "message": "이미 난독화 모드가 활성화되어 있습니다"
+  },
+  "toast_activated_welcome": {
+    "message": "난독화 모드가 켜졌습니다. 텍스트를 드래그하거나 이미지를 클릭하세요."
+  },
+  "toast_restore_success": {
+    "message": "선택 영역 복원 완료"
+  },
+  "toast_obfuscate_success": {
+    "message": "선택 영역 난독화 완료"
+  },
+  "toast_image_obfuscate": {
+    "message": "이미지 난독화 완료"
+  },
+  "toast_image_restore": {
+    "message": "이미지 복원 완료"
+  },
+  "toast_page_restore": {
+    "message": "전체 페이지 복원 완료"
+  },
+  "toast_page_image_obfuscate": {
+    "message": "모든 이미지 난독화 완료"
+  },
+  "toast_page_obfuscate": {
+    "message": "전체 페이지 난독화 완료"
+  },
+  "toast_undo": {
+    "message": "실행 취소되었습니다"
+  },
+  "toast_redo": {
+    "message": "다시 실행되었습니다"
+  },
+  "toast_mode_change": {
+    "message": "난독화 모드 변경: "
+  },
+  "toolbar_drag_title": {
+    "message": "드래그하여 이동"
+  },
+  "toolbar_undo_title": {
+    "message": "실행 취소 (Ctrl+Z)"
+  },
+  "toolbar_redo_title": {
+    "message": "다시 실행 (Ctrl+Y)"
+  },
+  "toolbar_all_title": {
+    "message": "전체 페이지 난독화"
+  },
+  "toolbar_finish_title": {
+    "message": "난독화 완료 및 툴바 닫기"
+  },
+  "toolbar_finish": {
+    "message": "완료"
+  }
+}

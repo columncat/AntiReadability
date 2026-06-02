@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "AntiReadability - 민감 정보 난독화 도구",
+  "default_locale": "ko",
+  "name": "__MSG_extName__",
   "version": "1.0.0",
-  "description": "화면 캡처 시 민감한 개인정보 영역을 레이아웃 깨짐 없이 무작위 텍스트나 도형으로 자연스럽게 난독화합니다.",
+  "description": "__MSG_extDescription__",
   "icons": {
     "16": "icons/icon16.png",
     "32": "icons/icon32.png",
